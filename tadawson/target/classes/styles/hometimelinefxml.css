@@ -1,0 +1,16 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.cssLayout {
+                    -fx-border-color: fuchsia;
+                   -fx-border-insets: 5;
+                   -fx-border-width: 2;
+                   -fx-border-style: groove;
+}
+.cssButton{
+    -fx-pref-height: 8px;
+    -fx-pref-width: 18px;
+}
+

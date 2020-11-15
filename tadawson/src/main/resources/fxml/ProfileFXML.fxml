@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane id="profileBoard" fx:id="profileBoard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.shirin.tadawson.controller.ProfileFXMLController">
+   <top>
+      <AnchorPane prefHeight="130.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutY="6.0" prefHeight="63.0" prefWidth="590.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/profilep.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="68.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/comment.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="28.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/retweetp.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" top="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="26.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/heartpp.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" top="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="112.0">
+                     <HBox.margin>
+                        <Insets left="300.0" top="10.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/follow-icon-png-27.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox fx:id="profilehbox" layoutX="2.0" layoutY="74.0" prefHeight="53.0" prefWidth="592.0" stylesheets="@../styles/profilefxml.css" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <ListView fx:id="tweettimeline" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <AnchorPane prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="showTweet" layoutX="65.0" layoutY="10.0" mnemonicParsing="false" onAction="#showTweetClick" text="Tweets" />
+                  <Button fx:id="mytweetRetweeted" layoutX="177.0" layoutY="10.0" mnemonicParsing="false" onAction="#myTweetRetweeted" text="MyTweetRetweeted" />
+                  <Button fx:id="retweetsByMe" layoutX="326.0" layoutY="10.0" mnemonicParsing="false" onAction="#RetweetsByMe" text="RetweetsByMe" />
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </center>
+</BorderPane>

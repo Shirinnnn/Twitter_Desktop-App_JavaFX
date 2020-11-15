@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Maven version of the xml document currently only 4.0.0 is valid -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- The GAV consists of an arbitrary descriptor that is usually in the
+    form of a reverse domain name. -->
+    <groupId>com.kfdesktopstandard</groupId>
+
+    <!-- This is the name given to the packaged build -->
+    <artifactId>desktop_project_dependencies</artifactId>
+ 
+    <!-- The version of the build. Any value is valid though a number and a
+    string are common. SNAPSHOT means a project under development. FINAL or no
+    text is commonly used to refer to stable production version -->
+    <!-- Upgraded for Java 12, OpenFX and running OpenFX apps -->
+    <version>1.1</version>
+
+    <!-- Packaging to be a parent pom for other projects -->
+    <packaging>pom</packaging>
+
+    <!-- Name of the project in the repository -->
+    <name>desktop_project_dependencies</name>
+
+    <!-- A description of the program -->
+    <description>Parent pom files for Java desktop applications in classes taught be Ken Fogel</description>
+
+    <!-- Global settings for the project. Settings can be accessed in the pom
+    by placing the tag name in ${...} ex. ${mainClass} -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>12</maven.compiler.source>
+        <maven.compiler.target>12</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+	    <!-- Here are the logging dependencies that are optional -->
+        <!-- The dependency for the SLF4J Facade -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.26</version>
+        </dependency>
+        <!-- Binding for Log4J -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+        <!-- Logging Framework Dependency Uses the log4j2 library -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+
+        <!-- JUnit 5 testing dependency -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.5.1</version>
+            <scope>test</scope>
+        </dependency>      
+        <!-- JUnit 5 supports JUnit 3 or 4 testing -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.5.1</version>
+            <scope>test</scope>
+        </dependency>  
+
+        <!-- OpenFX Dependencies -->
+        <!-- Here are the 3 versions of the graphics libraries for Win, Mac & Linux -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics </artifactId>
+            <version>12.0.2</version>
+            <classifier>win</classifier>
+        </dependency>
+        <!-- Comment and uncomment depending on your OS, default is Windows -->
+<!--        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics </artifactId>
+            <version>12.0.2</version>
+            <classifier>linux</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics </artifactId>
+            <version>12.0.2</version>
+            <classifier>mac</classifier>
+        </dependency>        -->
+
+        <!-- You do not require all of these dependencies. Dependent on the components you use -->        
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>12.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>12.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>12.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>12.0.2</version>
+        </dependency>
+        <!-- None of the samples combine Swing with JavaFX -->
+<!--        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>12.0.2</version>
+        </dependency>-->
+		
+        <!-- MySQL dependency (optional) ususally declared in local pom -->
+     <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
+		
+    </dependencies>
+
+    <build>
+        <!-- Goals may be set in the IDE or the pom IDE or CLI goals override the defaultGoal -->
+        <defaultGoal>clean package exec:java</defaultGoal>
+
+        <!-- Plugins define components that perform actions -->
+        <plugins>
+            <!-- Shade: Create an executable jar containing all the dependencies when the package goal is carried out -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation=
+                                  "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>${mainClass}</mainClass>
+                                    <manifestEntries>
+                                        <Multi-Release>true</Multi-Release>
+                                    </manifestEntries>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>                                
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>            
+ 
+            <!-- Exec: Executes the program  -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <goals>
+                            <!-- Runs in separate instance of JVM -->
+                            <goal>exec</goal>
+                            <!-- Runs in same instance of JVM as Maven/IDE -->
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <!-- used by java goal 
+                            executes in the same VM that Maven runs in  -->
+                            <mainClass>${mainClass}</mainClass>
+                            <cleanupDaemonThreads>false</cleanupDaemonThreads>
+                            <executable>${java.home}/bin/java</executable>
+                            <commandlineArgs>-jar ${project.build.directory}/${project.build.finalName}.jar</commandlineArgs>
+                        </configuration>                            
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Executes JUnit tests and writes the results as an xml and
+            txt file Test classes must include one of the following in their
+            name: Test* *Test *TestCase -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+                    <!-- Turn on tests: false, Turn off tests: true
+                    Better practice is to control testing in the
+                    NetBeans-Run Maven-Goals and set the property skipTests
+                    to true or false -->
+                    <!-- <skipTests>false</skipTests>-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

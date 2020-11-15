@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane id="sendTweet" fx:id="sendTweetBoard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.shirin.tadawson.controller.SendTweetFXMLController">
+   <center>
+      <TextArea id="textAreaTweet" fx:id="textAreaTweet" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <HBox id="hboxTweet" fx:id="hboxTweet" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="sendTweetBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sendTweetAction" prefHeight="27.0" prefWidth="75.0" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/send4.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="exitTweet" fx:id="exitTweet" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exitTweetAction" prefHeight="71.0" prefWidth="75.0" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/exit3.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

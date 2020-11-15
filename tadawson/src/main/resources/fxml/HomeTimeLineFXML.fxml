@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane id="listviewBorderPane" fx:id="listviewBorderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.shirin.tadawson.controller.HomeTimeLineFXMLController">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <top>
+      <AnchorPane prefHeight="63.0" prefWidth="580.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="homeLabel" fx:id="homeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="14.0" prefHeight="31.0" prefWidth="123.0" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/download.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Label>
+            <HBox fx:id="hbox2" layoutY="71.0" prefHeight="5.0" prefWidth="576.0" />
+            <Button fx:id="next20" layoutX="439.0" layoutY="22.0" mnemonicParsing="false" onAction="#showNextTwenty" prefHeight="21.0" prefWidth="81.0">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/NEXT.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="live" layoutX="290.0" layoutY="13.0" mnemonicParsing="false" onAction="#liveHomeline" prefHeight="46.0" prefWidth="81.0" text="live">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/follow-icon_1598871.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="sql" layoutX="208.0" layoutY="16.0" mnemonicParsing="false" onAction="#sqlTimeline">
+               <graphic>
+                  <ImageView fitHeight="44.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/sql.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ListView id="listviewHome" fx:id="listviewHome" prefHeight="390.0" prefWidth="533.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </ListView>
+   </center>
+</BorderPane>

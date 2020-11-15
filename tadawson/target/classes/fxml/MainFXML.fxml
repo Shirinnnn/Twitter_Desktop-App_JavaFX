@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane id="rootBoard" fx:id="rootBoard" layoutX="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.shirin.tadawson.controller.MainFXMLController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="%File">
+            <items>
+              <MenuItem fx:id="handleClose" mnemonicParsing="false" onAction="#handleClose" text="%close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="375.0" prefWidth="85.0" BorderPane.alignment="BOTTOM_CENTER">
+         <children>
+            <Button id="home" fx:id="home" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="27.0" prefWidth="75.0" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/home3.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="explore" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goExplore" prefHeight="27.0" prefWidth="75.0" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/search2.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="notification" fx:id="notification" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goNotification" prefHeight="46.0" prefWidth="75.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/notificationp.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="messages" fx:id="messages" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goMessages" prefHeight="27.0" prefWidth="75.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/msg2.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="profile" fx:id="profile" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goProfile" prefHeight="25.0" prefWidth="75.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/profilep.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="sendTweetBtn" fx:id="sendTweetBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sendTweetBtnAction" prefHeight="27.0" prefWidth="75.0" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Twitter%20Purple.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+  
+</BorderPane>

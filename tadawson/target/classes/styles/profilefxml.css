@@ -1,0 +1,13 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.HBOX{
+    -fx-border-style: solid inside;
+    -fx-border-insets: 5;
+    -fx-border-color: blue;
+    -fx-border-radius: 5;
+}
